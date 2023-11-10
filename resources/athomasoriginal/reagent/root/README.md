@@ -2,37 +2,32 @@
 
 {{description}}
 
-## Usage
+- [Quick Start]
+- [Build Production]
+- [License]
 
-FIXME: write usage documentation!
 
-Invoke a library API function from the command-line:
+## Quick Start
 
-    $ clojure -X {{top/ns}}.{{main/ns}}/foo :a 1 :b '"two"'
-    {:a 1, :b "two"} "Hello, World!"
+- Build JavaScript Deps
+  ```bash
+  yarn install
+  ```
+- Run App
+  ```bash
+  clj -M:dev
+  ```
+- Visit App
+  http://localhost:9500
 
-Run the project's tests (they'll fail until you edit them):
 
-    $ clojure -T:build test
+## Build Production
 
-Run the project's CI pipeline and build a JAR (this will fail until you edit the tests to pass):
+- Build production JavaScript bundle
 
-    $ clojure -T:build ci
-
-This will produce an updated `pom.xml` file with synchronized dependencies inside the `META-INF`
-directory inside `target/classes` and the JAR in `target`. You can update the version (and SCM tag)
-information in generated `pom.xml` by updating `build.clj`.
-
-Install it locally (requires the `ci` task be run first):
-
-    $ clojure -T:build install
-
-Deploy it to Clojars -- needs `CLOJARS_USERNAME` and `CLOJARS_PASSWORD` environment
-variables (requires the `ci` task be run first):
-
-    $ clojure -T:build deploy
-
-Your library will be deployed to {{group/id}}/{{artifact/id}} on clojars.org by default.
+  ```bash
+  clj -M:prod
+  ```
 
 ## License
 
@@ -44,3 +39,7 @@ _Feel free to remove or change the `LICENSE` file and remove or update this_
 _section of the `README.md` file!_
 
 Distributed under the Eclipse Public License version 1.0.
+
+[Quick Start]: #quick-start
+[Build Production]: #build-production
+[License]: #license
