@@ -1,0 +1,14 @@
+{:description "A reagent template."
+ ;; this does not transform the data but does print a message:
+ :data-fn athomasoriginal.reagent/data-fn
+ ;; this does not transform the EDN but does print a message:
+ :template-fn athomasoriginal.reagent/template-fn
+ :transform
+ [["build" ""
+   {"build.tmpl" "build.clj"
+    "deps.tmpl"  "deps.edn"}
+   :only]
+  ["src" "src/{{top/file}}"
+   {"main.tmpl" "{{main/file}}.clj"}]
+  ["test" "test/{{top/file}}"
+   {"main_test.tmpl" "{{main/file}}_test.clj"}]]}
