@@ -4,6 +4,8 @@ A collection of common templates I use to start different kinds of projects
 
 - [Housekeeping]
 - [Getting Started]
+- [Usage]
+  - [Global Alias]
 - [Development]
 - [License]
 
@@ -15,31 +17,41 @@ tools installed:
 - [Install Java]
 - [Install Clojure CLI Tools]
 
+
 ## Getting Started
 
 These templates are meant for use with [deps-new].  To create a new project:
 
 ```command
-clojure -Sdeps '{:deps {net.clojars.athomasoriginal/templates {:local/root "."}}}' -Tnew create :template athomasoriginal/templates :name myusername/mycoollib
+clojure -Sdeps \
+  '{:deps {io.github.athomasoriginal/templates {:git/sha "3c8bfec0c8153179b378ac4962e493c64fbc3b4c"}}}' \
+  -Tnew create \
+  :template athomasoriginal/reagent \
+  :name myusername/my-app-name
 ```
 
-Assuming you have installed `deps-new` as your `new` "tool" via:
+The above will get you started with a `reagent` app.
 
-```command
-clojure -Ttools install-latest :lib io.github.seancorfield/deps-new :as new
-```
+If the above seems like a lot to type out, it is.  Please see the [usage] section
+below for alternative approaches to running this app.
 
-> Note: once the template has been published (to a public git repo), the
-> invocation will be the same, except the `:local/root` dependency will be
-> replaced by a git or Maven-like coordinate.
 
-Run this template project's tests (by default, this just validates your
-template's `template.edn` file -- that it is valid EDN and it satisfies the
-`deps-new` Spec for template files):
+## Usage
 
-```command
-clojure -T:build test
-```
+### Global Alias
+
+The above is a lot to type.  It's only meant to give the reader the least amount
+of things to do to get things going.  However, if you're like me and using this
+tool a lot, you're going to want to setup an alias.
+
+- Open your global `.clojure` directory
+  ```bash
+  vim ~/.clojure
+  ```
+  > Note that `vim` is _my_ editor.  If you're not using `vim`, replace `vim`
+  > with the CLI command for your editor of choice.  Or just open `~/.clojure`
+  > from inside of your fav' editor.
+- Add the [new global alias] to the `deps.edn` file in `~/.clojure`
 
 ## Development
 
@@ -62,9 +74,12 @@ Distributed under the Eclipse Public License version 1.0.
 
 [Housekeeping]: #housekeeping
 [Getting Started]: #getting-started
+[Usage]: #usage
+[Global Alias]: #global-alias
 [Development]: #development
 [License]: #license
 
 [deps-new]: https://github.com/seancorfield/deps-new
 [Install Java]: https://www.youtube.com/watch?v=SljDPNwAFOc&t=16s
 [Install Clojure CLI Tools]: https://www.youtube.com/watch?v=5_q5pLoz9b0
+[new global alias]: https://github.com/athomasoriginal/dotfiles/blob/master/.clojure/deps.edn#L39
