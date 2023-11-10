@@ -4,6 +4,7 @@ A collection of common templates I use to start different kinds of projects
 
 - [Housekeeping]
 - [Getting Started]
+- [Development]
 - [License]
 
 ## Housekeeping
@@ -13,14 +14,13 @@ tools installed:
 
 - [Install Java]
 - [Install Clojure CLI Tools]
-- [deps-new]
 
 ## Getting Started
 
 These templates are meant for use with [deps-new].  To create a new project:
 
 ```command
-$ clojure -Sdeps '{:deps {net.clojars.athomasoriginal/templates {:local/root "."}}}' -Tnew create :template athomasoriginal/templates :name myusername/mycoollib
+clojure -Sdeps '{:deps {net.clojars.athomasoriginal/templates {:local/root "."}}}' -Tnew create :template athomasoriginal/templates :name myusername/mycoollib
 ```
 
 Assuming you have installed `deps-new` as your `new` "tool" via:
@@ -41,6 +41,18 @@ template's `template.edn` file -- that it is valid EDN and it satisfies the
 clojure -T:build test
 ```
 
+## Development
+
+- Clone repo
+- Modify the contents
+- Move into your `home` directory
+- Build a template from local repo
+  ```command
+  clojure -Sdeps '{:deps {athomasoriginal/templates {:local/root "/code/projects/templates"}}}' -Tnew create :template athomasoriginal/reagent :name mygithubhandle/myreagent
+  ```
+  > `/code/projects/templates` is specific to my environment.  Update the path
+  > to reflect your environment path.
+
 ## License
 
 Copyright © 2023 Thomas Mattacchione
@@ -50,6 +62,7 @@ Distributed under the Eclipse Public License version 1.0.
 
 [Housekeeping]: #housekeeping
 [Getting Started] #getting-started
+[Development]: #development
 [License] #license
 
 [deps-new]: https://github.com/seancorfield/deps-new
