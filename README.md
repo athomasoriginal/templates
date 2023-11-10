@@ -61,9 +61,9 @@ Distributed under the Eclipse Public License version 1.0.
 
 
 [Housekeeping]: #housekeeping
-[Getting Started] #getting-started
+[Getting Started]: #getting-started
 [Development]: #development
-[License] #license
+[License]: #license
 
 [deps-new]: https://github.com/seancorfield/deps-new
 [Install Java]: https://www.youtube.com/watch?v=SljDPNwAFOc&t=16s
