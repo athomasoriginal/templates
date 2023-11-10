@@ -1,0 +1,26 @@
+{
+  "name": "<<main/ns>>",
+  "type": "website",
+  "title": "Site Title",
+  "summary": "<<description>>",
+  "url": {
+    "feed": {
+      "description": "Your Site - All Content",
+      "link": "https://github.com/your-handle/repo/feed.xml"
+    },
+    "home": {
+      "description": "",
+      "link": "https://github.com/your-handle/rep"
+    },
+    "image": {
+      "description": "Page image for [your site name here]",
+      "link": "https://github.com/your-handle/repo/your-image.png"
+    }
+  },
+  "author": {
+    "name": "Your Name",
+    "email": "your.name@gmail.com"},
+  "handle": {
+    "twitter": "@twitterhandle"
+  }
+}
