@@ -24,7 +24,7 @@ These templates are meant for use with [deps-new].  To create a new project:
 
 ```command
 clojure -Sdeps \
-  '{:deps {io.github.athomasoriginal/templates {:git/sha "3c8bfec0c8153179b378ac4962e493c64fbc3b4c"}}}' \
+  '{:deps {io.github.athomasoriginal/templates {:git/sha "b130b6c940cc04ce12bbfb8f535689a3e7ec04e2"}}}' \
   -Tnew create \
   :template athomasoriginal/reagent \
   :name myusername/my-app-name
@@ -60,7 +60,10 @@ tool a lot, you're going to want to setup an alias.
 - Move into your `home` directory
 - Build a template from local repo
   ```command
-  clojure -Sdeps '{:deps {athomasoriginal/templates {:local/root "/code/projects/templates"}}}' -Tnew create :template athomasoriginal/reagent :name mygithubhandle/myreagent
+  clojure -Sdeps '{:deps {athomasoriginal/templates {:local/root "/code/projects/templates"}}}' \
+          -Tnew create \
+          :template athomasoriginal/reagent \
+          :name mygithubhandle/myreagent
   ```
   > `/code/projects/templates` is specific to my environment.  Update the path
   > to reflect your environment path.
