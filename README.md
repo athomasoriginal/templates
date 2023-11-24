@@ -52,6 +52,12 @@ tool a lot, you're going to want to setup an alias.
   > with the CLI command for your editor of choice.  Or just open `~/.clojure`
   > from inside of your fav' editor.
 - Add the [new global alias] to the `deps.edn` file in `~/.clojure`
+- Create a new template
+  ```command
+  clj -T:new :name nike/app-name
+  ```
+  > `nike` is your organization name.  `app-name` is the name of your app and
+  > will be the name of your top level folder.
 
 ## Development
 
