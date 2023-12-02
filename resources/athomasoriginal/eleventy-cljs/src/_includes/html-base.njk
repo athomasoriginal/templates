@@ -1,0 +1,44 @@
+---
+title: html-base
+---
+
+<!doctype html>
+<html class="no-js" lang="">
+  <head>
+    <meta charset="utf-8">
+    <title>{{ site.name }}</title>
+    <meta name="description" content="{{ site.summary }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta property="og:site_name" content="{{ site.name }}">
+    <meta property="og:title" content="{{ site.title }}">
+    <meta property="og:type" content="{{ site.type }}">
+    <meta property="og:url" content="{{ site.url.home.link }}">
+    <meta property="og:description" content="{{ site.summary }}">
+    <meta property="og:image" content="{{ site.url.image.link }}">
+    <meta property="og:image:alt" content="{{ site.url.image.description }}">
+
+    <meta name="twitter:creator" content="{{ site.handle.twitter}}">
+    <meta name="twitter:description" content="{{ site.summary }}">
+    <meta name="twitter:image" content="{{ site.url.image.link }}">
+    <meta name="twitter:image:alt" content="{{ site.url.image.description }}">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="apple-touch-icon" href="apple-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+    <link rel="alternate" type="application/rss+xml" title="{{ site.url.feed.description }}" href="{{ site.url.feed.link }}">
+
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/styles.css">
+
+    <meta name="theme-color" content="#fafafa">
+  </head>
+
+  <body>
+
+    {{ content | safe }}
+
+  </body>
+</html>

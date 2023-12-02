@@ -1,0 +1,8 @@
+{:description "An 11ty CLJS template."
+ ;; this does not transform the data but does print a message:
+ :data-fn athomasoriginal.eleventy/data-fn
+ ;; this does not transform the EDN but does print a message:
+ :template-fn athomasoriginal.eleventy/template-fn
+ :transform
+ [["src" "src"
+   ["<<" ">>"]]]}
