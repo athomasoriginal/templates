@@ -18,6 +18,13 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addFilter("w3cDate", filter.w3cDate);
 
+  // @note add custom delims for frontmatter - required to avoid throwing
+  // errors in CLJS files
+  eleventyConfig.setFrontMatterParsingOptions({
+    delims: [";;;", ";;;"],
+  })
+
+
   // @configuration rock an RSS feed
   eleventyConfig.addPlugin(pluginRss);
 
