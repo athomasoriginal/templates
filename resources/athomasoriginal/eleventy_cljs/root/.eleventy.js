@@ -5,6 +5,13 @@ const filter = require("./src/filter");
 // @note import plugins
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
+async function parse_edn_frontmatter(frontmatter) {
+  const { loadFile } = await import('nbb');
+  const { compileFrontmatter } = await loadFile("run_clj.cljs");
+  const data = await compileFrontmatter(frontmatter);
+  return data
+}
+
 module.exports = function (eleventyConfig) {
   // @configuration avoid using .gitignore to tell eleventy what should/should
   // not be watched
@@ -22,6 +29,11 @@ module.exports = function (eleventyConfig) {
   // errors in CLJS files
   eleventyConfig.setFrontMatterParsingOptions({
     delims: [";;;", ";;;"],
+    engines: {
+      edn: {
+        parse: parse_edn_frontmatter,
+      }
+    }
   })
 
 
