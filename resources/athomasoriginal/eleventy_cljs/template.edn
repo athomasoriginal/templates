@@ -4,5 +4,8 @@
  ;; this does not transform the EDN but does print a message:
  :template-fn athomasoriginal.eleventy/template-fn
  :transform
- [["src" "src"
+ [["root" ""
+   {"template_engine_clj.tmpl" "template_engine_clj.cljs"}]
+  ["src" "src"
+   {"index.tmpl" "index.cljs"}
    ["<<" ">>"]]]}

@@ -1,1 +1,365 @@
-/* Styles */
+/* ----------------------------------------------------------------------------
+ * Styles
+ * --------------------------------------------------------------------------*/
+
+
+/* ----------------------------------------------------------------------------
+ * Reset
+ *
+ * Based on https://andy-bell.co.uk/a-more-modern-css-reset/ Dec 12, 2023
+ * --------------------------------------------------------------------------*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Prevent font size inflation */
+html {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+/* Remove default margin in favour of better control in authored CSS */
+body, h1, h2, h3, h4, p,
+figure, blockquote, dl, dd {
+  margin-block-end: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* Set shorter line heights on headings and interactive elements */
+h1, h2, h3, h4,
+button, input, label {
+  line-height: 1.1;
+}
+
+/* Balance text wrapping on headings */
+h1, h2,
+h3, h4 {
+  text-wrap: balance;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+  color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input, button,
+textarea, select {
+  font: inherit;
+}
+
+/* Make sure textareas without a rows attribute are not tiny */
+textarea:not([rows]) {
+  min-height: 10em;
+}
+
+/* Anything that has been anchored to should have extra scroll margin */
+:target {
+  scroll-margin-block: 5ex;
+}
+
+
+/* ----------------------------------------------------------------------------
+ * Layouts
+ * --------------------------------------------------------------------------*/
+
+
+/* stack
+ *
+ * Space between items in a column.  Prefer this over the `region` when you
+ * have items in a column which require uniform spacing
+ *
+ * sizes: stack:tight, stack:hug, stack
+ * -------------------------------------------------------------------------*/
+.stack,
+.stack\:tight,
+.stack\:hug {
+  --space: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stack > * + *,
+.stack\:tight > * + *,
+.stack\:hug > * + * {
+  margin-top: var(--space);
+}
+
+.stack\:tight {
+  --space: .5rem;
+}
+
+.stack\:hug {
+  --space: .2rem;
+}
+
+
+/* sidebar
+ *
+ * Comes in two styles:
+ *
+ * styles: with-sidebar, with-sidebar:right
+ * -------------------------------------------------------------------------*/
+
+.with-sidebar,
+.with-sidebar\:right {
+  --sidebar-basis: 24rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+}
+
+.with-sidebar > :first-child,
+.with-sidebar\:right > :last-child {
+  /* width of the sidebar */
+  flex-basis: var(--sidebar-basis);
+  flex-grow: 1;
+}
+
+.with-sidebar > :last-child,
+.with-sidebar\:right > :first-child {
+  flex-basis: 0;
+  flex-grow: 999;
+  min-inline-size: 50%;
+}
+
+
+/* row
+ * -------------------------------------------------------------------------*/
+.row {
+  display: flex;
+}
+
+
+/* column
+ * -------------------------------------------------------------------------*/
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* repel
+ *
+ * Layout two containers at the opposite ends of each other
+ * -------------------------------------------------------------------------*/
+.repel {
+  display: flex;
+  justify-content: space-between;
+}
+
+
+/* wrapper
+ *
+ * A wrapper provides horitizontal space to the right and left of an element.
+ * Avoid using this to add vertical space.  For that, please see `region` or
+ * `stack`.
+ *
+ * sizes: tight, small, medium
+ * -------------------------------------------------------------------------*/
+.wrapper\:tight {
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.wrapper\:small {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.wrapper\:medium {
+  padding-left: 4em;
+  padding-right: 4em;
+}
+
+
+/* region
+ *
+ * A region is used to space above and below an element.  For horizontal space,
+ * please see `wrapper`
+ *
+ * sizes: hug, tight, small, medium
+ * -------------------------------------------------------------------------*/
+.region\:hug {
+  padding-top: .5em;
+  padding-bottom: .5em;
+}
+
+.region\:tight {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.region\:small {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.region\:medium {
+  padding-top: 4em;
+  padding-bottom: 4em;
+}
+
+/* center
+ *
+ * a layout component to center content horizontally.  This doesn't rely on
+ * flex.
+ *
+ * -------------------------------------------------------------------------*/
+
+.center {
+  --layout-center-max-width: 55em;
+  box-sizing: content-box;
+  margin-inline: auto;
+  max-inline-size: var(--layout-center-max-width);
+}
+
+
+/* gap & gap-column
+ *
+ * Add horizontal space between elements.  For example, buttons in a row.
+ * -------------------------------------------------------------------------*/
+.gap\:tight {
+  /* @note the clamp numbers can be modified - nothing special yet */
+  gap: 0 clamp(.5rem,.5rem,.5rem);
+}
+
+.gap\:small {
+  /* @note the clamp numbers can be modified - nothing special yet */
+  gap: 0 clamp(1rem,1rem,1rem);
+}
+
+.gap\:medium {
+  /* @note the clamp numbers can be modified - nothing special yet */
+  gap: 0 clamp(4rem,4rem,4rem);
+}
+
+.gap-column\:small {
+  gap: clamp(1rem,1rem,1rem) 0;
+}
+
+/* two-column
+ *
+ * Layout two divs side-by-side as two equal columns.
+ *
+ * Both columns will take 50% of the available space.  However, when the second
+ * column goes below 25% of the total available space it will collapse.  We
+ * do this because it achieves responsive design without having to set media
+ * queries which means easier to maintain CSS.
+ * -------------------------------------------------------------------------*/
+.two-column {
+  display:flex;
+  flex-wrap:wrap;
+}
+
+.two-column > * {
+  flex: 1;
+}
+
+.two-column > :last-child {
+  min-inline-size: 50%;
+}
+
+/* cluster
+ *
+ * Layout `n` components of varying length.  Think of it like a flex equivalent
+ * of a "masonry" layout.  Example use cases:
+ *   - Horizontal Nav Items
+ *   - Text
+ * -------------------------------------------------------------------------*/
+.cluster,
+.cluster-column {
+  --cluster-space: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--cluster-space);
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.cluster-column {
+  flex-direction: column;
+}
+
+/* Imposter
+ *
+ * Places content ontop of other content and correctly centers the layout.
+ * Think: modal.
+ * -------------------------------------------------------------------------*/
+.imposter {
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-start: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.imposter.contain {
+  --margin: 0px;
+  overflow: auto;
+  max-inline-size: calc(100% - (var(--margin) * 2));
+  max-block-size: calc(100% - (var(--margin) * 2));
+}
+
+
+/* scrollable container
+ * -------------------------------------------------------------------------*/
+.vertical-scroll {
+  --max-scroll-container-height: 16em;
+  /* @note `auto` makes it so the scrollbar is hidden when the list isn't long
+   * enough and visible when it is */
+  overflow-y: auto;
+  max-height: var(--max-scroll-container-height);
+}
+
+
+/*  -------------------------------------------------------------------------
+ * Utils
+ * -------------------------------------------------------------------------*/
+.start {
+  align-items: flex-start;
+}
+
+.end {
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.center {
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.full-width {
+  flex-basis: 100%;
+}
+
+/* App Styles
+ * --------------------------------------------------------------------------*/

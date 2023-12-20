@@ -5,11 +5,35 @@ const filter = require("./src/filter");
 // @note import plugins
 const pluginRss = require("@11ty/eleventy-plugin-rss");
 
+
 async function parse_edn_frontmatter(frontmatter) {
   const { loadFile } = await import('nbb');
   const { compileFrontmatter } = await loadFile("run_clj.cljs");
   const data = await compileFrontmatter(frontmatter);
   return data
+}
+
+
+// @note handle `clj` extension
+function compile_clj(inputContent, inputPath) {
+
+  // @todo make this dynamic or follow some kind of convention
+  if(inputPath.startsWith("\.\/src\/extra")) {
+    return;
+  }
+
+  return async (data) => {
+    // @note enable to test against a dev version of nbb
+    //
+    // const { loadFile } = await import('./lib/nbb_api.js');
+    const { loadFile } = await import('nbb');
+    const { compileFile } = await loadFile("template_engine_clj.cljs");
+    const { htmlString, deps } = await compileFile(inputPath, {data: data});
+    this.addDependencies(inputPath, deps);
+
+    return htmlString
+  };
+
 }
 
 module.exports = function (eleventyConfig) {

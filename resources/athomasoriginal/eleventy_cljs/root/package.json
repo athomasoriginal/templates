@@ -6,7 +6,8 @@
   "license": "MIT",
   "devDependencies": {
     "@11ty/eleventy": "2.0.1",
-    "@11ty/eleventy-plugin-rss": "1.2.0"
+    "@11ty/eleventy-plugin-rss": "1.2.0",
+    "nbb": "1.2.179"
   },
   "scripts": {
     "dev": "ELEVENTY_ENV=development npx @11ty/eleventy --serve",
