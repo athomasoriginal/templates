@@ -1,0 +1,35 @@
+(ns dev
+  "Dev namespace"
+  (:require
+    [{{top/ns}}.{{main/ns}} :as {{main/ns}}]))
+
+
+(def ^:private server nil)
+
+
+(defn stop
+  "Halt the JED system"
+  []
+  (if server
+    (do
+      (println "Stopping Server")
+      (.stop server)
+      (alter-var-root #'server (constantly nil))
+      :server-stopped)
+    (println "Server not running")))
+
+
+(defn start
+  "Initialize the JED system"
+  []
+  (if server
+    (println "Server already running")
+    (do
+      (alter-var-root #'server (constantly ({{main/ns}}/server)))
+      :server-running)))
+
+(comment
+
+  (start)
+
+  (stop))
