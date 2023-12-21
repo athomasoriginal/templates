@@ -1,0 +1,4 @@
+{:description "my new application."
+ :transform
+ [["src" "src/"
+   {"main.tmpl" "{{main/file}}.clj"}]]}
