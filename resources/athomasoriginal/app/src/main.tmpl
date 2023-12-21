@@ -1,0 +1,36 @@
+(ns {{top/ns}}.{{main/ns}}
+  (:require
+    [reitit.ring        :as reitit]
+    [ring.adapter.jetty :as jetty])
+  (:gen-class))
+
+
+(defn health-check-route []
+    ["/"
+     {:get
+      {:handler
+       (fn [_]
+         {:status  200
+          :headers {"Content-Type" "text/plain"}
+          :body    "We good, blue?"})}}])
+
+
+(defn router []
+  (reitit/router
+    [(health-check-route)]))
+
+
+(defn app
+  [req]
+  ((reitit/ring-handler (router) (constantly {:status 404})) req))
+
+
+(defn server
+  []
+  (jetty/run-jetty #'app {:port 3000 :join? false}))
+
+
+(defn -main
+  "Run {{main/ns}}"
+  [& args]
+  (server))

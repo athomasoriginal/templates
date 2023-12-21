@@ -1,0 +1,11 @@
+{:min-bb-version
+ "1.3.186"
+
+ :tasks
+ {dev
+  {:doc  "Start app"
+   :task (shell "clj -M:dev")}
+
+  dev:vi
+  {:doc  "Start app with vim-iced"
+   :task (shell "iced repl -A:dev")}}}
