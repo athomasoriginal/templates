@@ -1,0 +1,18 @@
+;;;edn
+{:layout "html-base"
+ :title  "home"}
+;;;
+(ns src.index)
+
+(defn main
+  [data]
+  (let [data* (js->clj data)]
+    (for [post (-> data* :collections :post)]
+      [:article {:class "blog"}
+        [:a {:href (:url post)} (-> post :data :title)]
+        [:p (-> post :data :summary)]
+        [:time {:datetime (-> post :data :createdDate)}]
+        [:p
+          [:span "posted on"]
+          [:span "BY"]
+          [:span (-> post :data :author)]]])))

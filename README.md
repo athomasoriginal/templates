@@ -6,6 +6,7 @@ A collection of common templates I use to start different kinds of projects
 - [Getting Started]
 - [Usage]
   - [Global Alias]
+  - [Templates]
 - [Development]
 - [License]
 
@@ -58,6 +59,19 @@ tool a lot, you're going to want to setup an alias.
   ```
   > `nike` is your organization name.  `app-name` is the name of your app and
   > will be the name of your top level folder.
+
+## Templates
+
+We currently provide three different templates:
+
+* reagent
+  * A simple `figwheel-main` and `reagent` project.
+* eleventy
+  * A simple `eleventy` project
+* eleventy_cljs
+  * A simple `eleventy` project, but it comes with an out-of-the-box custom
+    template engine to support `cljs` files.
+
 
 ## Development
 

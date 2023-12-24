@@ -1,0 +1,10 @@
+# mac system
+.DS_Store
+
+# eleventy stuffs
+_site/
+dist
+
+# ignore JS generated output everywhere
+node_modules
+yarn-error.log
