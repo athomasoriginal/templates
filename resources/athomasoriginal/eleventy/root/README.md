@@ -20,7 +20,7 @@ Be sure to have the following tools installed
 
 ## Quickstart
 
-- Move into `{{main/ns}}
+- Move into `{{main/ns}}`
 - Install JS dependencies
   ```command
   yarn install
@@ -28,7 +28,7 @@ Be sure to have the following tools installed
   > Wait for everything to install before running the next step
 - Start the project
   ```command
-  yarn run dev
+  yarn dev
   ```
 
 ## Feature Choices
@@ -50,15 +50,15 @@ This section includes tooling and pattern choices made for this template.
 
 - Run development environment
   ```command
-  yarn run dev
+  yarn dev
   ```
 - Run development environment in debug mode
   ```command
-  yarn run dev:debug
+  yarn dev:debug
   ```
 - Build for production
   ```command
-  yarn run build
+  yarn build
   ```
 
 ## Data Usage
@@ -108,6 +108,6 @@ There is a priority order for how Data is consumed by Eleventy.  Familarize your
 
 [Eleventy]: https://www.11ty.dev/
 [Node]: https://nodejs.org/en/
-[Yarn]: https://classic.yarnpkg.com/en/docs/install/
+[Yarn]: https://yarnpkg.com/getting-started/install
 [HTML5 Boilerplate]: https://html5boilerplate.com/
 [Modern CSS Reset]: https://github.com/andy-piccalilli/modern-css-reset

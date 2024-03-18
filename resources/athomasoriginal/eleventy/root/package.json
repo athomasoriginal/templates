@@ -9,8 +9,9 @@
     "@11ty/eleventy-plugin-rss": "1.2.0"
   },
   "scripts": {
-    "dev": "ELEVENTY_ENV=development npx @11ty/eleventy --serve",
-    "dev:debug": "ELEVENTY_ENV=development DEBUG=Eleventy* npx @11ty/eleventy --serve",
-    "build": "ELEVENTY_ENV=production npx @11ty/eleventy"
-  }
+    "dev": "ELEVENTY_ENV=development yarn dlx @11ty/eleventy --serve",
+    "dev:debug": "ELEVENTY_ENV=development DEBUG=Eleventy* yarn dlx @11ty/eleventy --serve",
+    "build": "ELEVENTY_ENV=production yarn dlx @11ty/eleventy"
+  },
+  "packageManager": "yarn@4.1.1"
 }
