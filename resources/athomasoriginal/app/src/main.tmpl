@@ -5,7 +5,13 @@
   (:gen-class))
 
 
-(defn health-check-route []
+(defn routes-static-assets
+  []
+  ["/public/*"
+   (reitit.ring/create-resource-handler {:root "public"})])
+
+
+(defn routes []
     ["/"
      {:get
       {:handler
@@ -17,7 +23,8 @@
 
 (defn router []
   (reitit/router
-    [(health-check-route)]))
+    [(routes-static-assets)
+     (routes)]))
 
 
 (defn app
