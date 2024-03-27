@@ -59,6 +59,10 @@ The following is a complete list of commands to run:
   bb dev:vi
   ```
   - Be sure to have [vim-iced] installed.
+- Find outdated packages
+  ```command
+  bb outdated
+  ```
 - Run the project directly, via `:exec-fn`:
   ```command
   clojure -X:run-x

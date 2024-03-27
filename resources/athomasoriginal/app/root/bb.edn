@@ -2,10 +2,22 @@
  "1.3.186"
 
  :tasks
- {dev
+ {:requires
+  ([clojure.string :as s])
+
+  -cli-args
+  {:doc  "Command line arguments"
+   :task (s/join " " *command-line-args*)}
+
+  dev
   {:doc  "Start app"
    :task (shell "clj -M:dev")}
 
   dev:vi
   {:doc  "Start app with vim-iced"
-   :task (shell "iced repl -A:dev")}}}
+   :task (shell "iced repl -A:dev")}
+
+  outdated
+  {:doc     "List app client deps with new versions."
+   :depends [-cli-args]
+   :task    (shell (str "clj -M:outdated " -cli-args))}}}
