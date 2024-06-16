@@ -61,18 +61,16 @@ tool a lot, you're going to want to setup an alias.
 
 ## Development
 
-- Clone repo
+- Clone this repo
+- Move into this repo
 - Modify the contents
-- Move into your `home` directory
 - Build a template from local repo
   ```command
-  clojure -Sdeps '{:deps {athomasoriginal/templates {:local/root "/code/projects/templates"}}}' \
+  clojure -Sdeps '{:deps {athomasoriginal/templates {:local/root "."}}}' \
           -Tnew create \
           :template athomasoriginal/reagent \
           :name mygithubhandle/myreagent
   ```
-  > `/code/projects/templates` is specific to my environment.  Update the path
-  > to reflect your environment path.
 
 ## License
 

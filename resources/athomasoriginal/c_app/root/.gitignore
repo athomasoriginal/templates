@@ -1,0 +1,12 @@
+# Macos
+.DS_Store
+
+# editor - ignore lsp editor plugin dev build dir
+.ccls-cache
+
+# build - prod build
+bin/*
+!bin/.gitkeep
+
+# build - dev - ignore debug files for C code
+*.dSYM

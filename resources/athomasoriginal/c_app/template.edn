@@ -1,0 +1,6 @@
+{:description "C App Template."
+ ;; this does not transform the data but does print a message:
+ :data-fn     athomasoriginal.c-app/data-fn
+ ;; this does not transform the EDN but does print a message:
+ :template-fn athomasoriginal.c-app/template-fn
+ :tranform    [["src" "src"]]}
