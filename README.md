@@ -24,7 +24,7 @@ These templates are meant for use with [deps-new].  To create a new project:
 
 ```command
 clojure -Sdeps \
-  '{:deps {io.github.athomasoriginal/templates {:git/sha "cae9412cfd6bc556ce694ad01725992fce0ff47c"}}}' \
+  '{:deps {io.github.athomasoriginal/templates {:git/sha "52c676bddcf946fc405f1352ae9c2ee3e1aa66e1"}}}' \
   -Tnew create \
   :template athomasoriginal/reagent \
   :name myusername/my-app-name
