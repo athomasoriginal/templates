@@ -12,6 +12,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addPassthroughCopy("./src/css");
 
+  eleventyConfig.addPassthroughCopy("./src/images");
+
   eleventyConfig.addPassthroughCopy("./src/site.webmanifest");
 
   eleventyConfig.addFilter("dateFilter", filter.dateFilter);
