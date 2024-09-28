@@ -19,7 +19,7 @@ html:focus-within {
 }
 
 /* Remove default margin in favour of better control in authored CSS */
-blockquote, body, dd, dl, figure, h1, h2, h3, h4, p {
+blockquote, body, dd, dl, figure, h1, h2, h3, h4, p, form {
     margin:0
 }
 
