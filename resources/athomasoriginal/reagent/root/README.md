@@ -1,30 +1,27 @@
 # {{raw-name}}
 
-{{description}}
-
-- [Quick Start]
-- [Build Production]
-- [License]
+* [Quick Start]
+* [Build Production]
+* [License]
 
 
 ## Quick Start
 
-- Build JavaScript Deps
+* Build JavaScript Deps
   ```bash
   yarn install
   ```
-- Run App
+* Run App
   ```bash
   clj -M:dev
   ```
-- Visit App
+* Visit App
   http://localhost:9500
 
 
 ## Build Production
 
-- Build production JavaScript bundle
-
+* Build production JavaScript bundle
   ```bash
   clj -M:prod
   ```
