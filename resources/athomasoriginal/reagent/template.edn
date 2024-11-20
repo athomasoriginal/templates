@@ -5,12 +5,14 @@
  :template-fn athomasoriginal.reagent/template-fn
  :transform
  [["build" ""
-   {"build.tmpl"     "build.clj"
-    "deps.tmpl"      "deps.edn"
-    "dev.cljs.tmpl"  "dev.cljs.edn"
-    "prod.cljs.tmpl" "prod.cljs.edn"}
+   {"build.tmpl"              "build.clj"
+    "deps.tmpl"               "deps.edn"
+    "dev.cljs.tmpl"           "dev.cljs.edn"
+    "prod.cljs.tmpl"          "prod.cljs.edn"
+    "test.headless.cljs.tmpl" "test.headless.cljs.edn"}
    :only]
   ["src" "src/{{top/file}}"
    {"main.tmpl" "{{main/file}}.cljs"}]
   ["test" "test/{{top/file}}"
-   {"main_test.tmpl" "{{main/file}}_test.cljs"}]]}
+   {"main_test.tmpl"   "{{main/file}}_test.cljs"
+    "test_runner.tmpl" "test_runner.cljs"}]]}
