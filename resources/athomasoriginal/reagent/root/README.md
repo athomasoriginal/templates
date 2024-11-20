@@ -7,7 +7,9 @@
 
 ## Quick Start
 
-* Build JavaScript Deps
+* Clone this `{{raw-name}}`
+* Move into the root of `{{raw-name}}`
+* Install JavaScript deps
   ```bash
   yarn install
   ```
