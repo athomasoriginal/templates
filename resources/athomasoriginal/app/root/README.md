@@ -85,7 +85,7 @@ The following is a complete list of commands to run:
   > Hello, Via-Main!
 - Run the project's tests (they'll fail until you edit them):
   ```command
-  clojure -T:build test
+  clj -M:test
   ```
 - Run the project's CI pipeline and build an uberjar (this will fail until you edit the tests to pass):
   ```command
