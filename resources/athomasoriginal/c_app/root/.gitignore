@@ -10,3 +10,10 @@ bin/*
 
 # build - dev - ignore debug files for C code
 *.dSYM
+
+# editor - vim
+.sw*
+*.class
+*.jar
+*.swp
+*~

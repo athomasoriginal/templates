@@ -1,28 +1,39 @@
-.calva/output-window/
-.classpath
-.clj-kondo/.cache
-.cpcache
-.eastwood
-.factorypath
-.hg/
-.hgignore
-.java-version
-.lein-*
-.lsp/.cache
-.lsp/sqlite.db
-.nrepl-history
-.nrepl-port
-.portal/vs-code.edn
-.project
-.rebel_readline_history
-.settings
-.socket-repl-port
+# keep the log dir, but ignore the log files
+logs/**/*
+!logs/.gitkeep
+
+# editor - vim
 .sw*
-.vscode
 *.class
 *.jar
 *.swp
 *~
+
+# editor - vscode
+.calva/output-window/
+.vscode
+
+# editor - lsp
+.lsp/.cache
+.lsp/sqlite.db
+
+# lang - clojure
+.classpath
+.cpcache
+.java-version
 /checkouts
 /classes
 /target
+
+# clojure - clj-kondo
+.clj-kondo/imports
+.clj-kondo/.cache
+
+# clojure - nrepl
+.nrepl-history
+.nrepl-port
+
+# clojure - rebl
+.rebel_readline_history
+.settings
+.socket-repl-port

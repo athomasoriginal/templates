@@ -8,3 +8,10 @@ dist
 # ignore JS generated output everywhere
 node_modules
 yarn-error.log
+
+# editor - vim
+.sw*
+*.class
+*.jar
+*.swp
+*~
