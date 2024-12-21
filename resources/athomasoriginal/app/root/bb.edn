@@ -13,9 +13,24 @@
   {:doc  "Start app"
    :task (shell "clj -M:dev")}
 
-  dev:vi
-  {:doc  "Start app with vim-iced"
-   :task (shell "iced repl -A:dev")}
+
+  ;; Usage:
+  ;; --------------------------------------------------------------------------
+  ;;  help:
+  ;;  $ bb fmt -h
+  ;;
+  ;;  format and write file:
+  ;;  $ bb fmt -w path/to/file.clj
+  fmt
+  {:doc        "Format clojure code"
+   :extra-deps {zprint/zprint {:mvn/version "1.2.9"}},
+   :requires   ([zprint.main])
+   :task       (-> (partial zprint.main/-main "{:search-config? true}")
+                   (apply *command-line-args*))}
+
+  test
+  {:doc  "Test app"
+   :task (shell "clojure -M:dev:test")}
 
   outdated
   {:doc     "List app client deps with new versions."
