@@ -11,7 +11,7 @@
 
   dev
   {:doc  "Start app"
-   :task (shell "clj -M:dev")}
+   :task (shell "clj -M:dev:run-repl")}
 
 
   ;; Usage:
