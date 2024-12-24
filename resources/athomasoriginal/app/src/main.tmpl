@@ -32,7 +32,7 @@
   ((reitit/ring-handler (router) (constantly {:status 404})) req))
 
 
-(defn server
+(defn run-server
   []
   (jetty/run-jetty #'app {:port 3000 :join? false}))
 
@@ -40,4 +40,4 @@
 (defn -main
   "Run {{main/ns}}"
   [& args]
-  (server))
+  (run-server))
