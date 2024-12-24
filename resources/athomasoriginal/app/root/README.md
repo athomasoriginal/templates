@@ -54,25 +54,31 @@ Visit localhost:8090
 
 The following is a complete list of commands to run:
 
-* Run dev with `vim-iced`
+
+* Run the project's tests
   ```command
-  bb dev:vi
+  bb test
   ```
-  - Be sure to have [vim-iced] installed.
+  > They'll fail until you edit them
 * Find outdated packages
   ```command
   bb outdated
   ```
-* Run the project directly, via `:exec-fn`:
+* Run the project's CI pipeline and build an uberjar (this will fail until you edit the tests to pass):
   ```command
-  clojure -X:run-x
+  clojure -T:build ci
   ```
-  > Hello, Clojure!
-* Run the project, overriding the name to be greeted:
-  ```command
-  clojure -X:run-x :name '"Someone"'
-  ```
-  > Hello, Someone!
+  This will produce an updated `pom.xml` file with synchronized dependencies inside the `META-INF`
+  directory inside `target/classes` and the uberjar in `target`. You can update the version (and SCM tag)
+  information in generated `pom.xml` by updating `build.clj`.
+
+  If you don't want the `pom.xml` file in your project, you can remove it. The `ci` task will
+  still generate a minimal `pom.xml` as part of the `uber` task, unless you remove `version`
+  from `build.clj`.
+  * Run that uberjar:
+    ```command
+    java -jar target/{{group/id}}/{{artifact/id}}-{{version}}.jar
+    ```
 * Run the project directly, via :main-opts (-m {{top/ns}}.{{main/ns}}):
   ```command
   clojure -M:run-m
@@ -83,27 +89,7 @@ The following is a complete list of commands to run:
   clojure -M:run-m Via-Main
   ```
   > Hello, Via-Main!
-* Run the project's tests (they'll fail until you edit them):
-  ```command
-  clj -M:test
-  ```
-* Run the project's CI pipeline and build an uberjar (this will fail until you edit the tests to pass):
-  ```command
-  clojure -T:build ci
-  ```
 
-This will produce an updated `pom.xml` file with synchronized dependencies inside the `META-INF`
-directory inside `target/classes` and the uberjar in `target`. You can update the version (and SCM tag)
-information in generated `pom.xml` by updating `build.clj`.
-
-If you don't want the `pom.xml` file in your project, you can remove it. The `ci` task will
-still generate a minimal `pom.xml` as part of the `uber` task, unless you remove `version`
-from `build.clj`.
-
-* Run that uberjar:
-  ```command
-  java -jar target/{{group/id}}/{{artifact/id}}-{{version}}.jar
-  ```
 
 ## Dev Tips
 

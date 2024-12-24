@@ -22,11 +22,6 @@
                "[cider.nrepl/cider-middleware]"
                "--interactive"]}
 
-  :run-x
-  {:ns-default {{top/ns}}.{{main/ns}}
-   :exec-fn    greet
-   :exec-args  {:name "Clojure"}}
-
   :build
   {:deps       {io.github.clojure/tools.build {:mvn/version "0.9.6"}}
    :ns-default build}
