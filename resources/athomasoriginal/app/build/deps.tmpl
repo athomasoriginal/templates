@@ -2,14 +2,14 @@
 
  :deps
  {org.clojure/clojure     {:mvn/version "1.12.0"}
-  metosin/reitit          {:mvn/version "0.7.0"}
-  ring/ring               {:mvn/version "1.12.2"}
-  ring/ring-jetty-adapter {:mvn/version "1.12.2"}}
+  metosin/reitit          {:mvn/version "0.7.2"}
+  ring/ring               {:mvn/version "1.13.0"}
+  ring/ring-jetty-adapter {:mvn/version "1.13.0"}}
 
  :aliases
  {:dev
-  {:extra-deps  {cider/cider-nrepl {:mvn/version "0.50.3"}
-                 nrepl/nrepl       {:mvn/version "1.3.0"}}
+  {:extra-deps  {cider/cider-nrepl {:mvn/version "0.52.0"}
+                 nrepl/nrepl       {:mvn/version "1.3.1"}}
    :extra-paths ["dev"]}
 
   :run-m
@@ -23,7 +23,7 @@
                "--interactive"]}
 
   :build
-  {:deps       {io.github.clojure/tools.build {:mvn/version "0.9.6"}}
+  {:deps       {io.github.clojure/tools.build {:mvn/version "0.10.6"}}
    :ns-default build}
 
   :test
@@ -34,5 +34,5 @@
    :exec-fn     cognitect.test-runner.api/test}
 
   :outdated
-  {:extra-deps {com.github.liquidz/antq {:mvn/version "2.8.1185"}}
+  {:extra-deps {com.github.liquidz/antq {:mvn/version "2.11.1264"}}
    :main-opts  ["-m" "antq.core"]}}}
