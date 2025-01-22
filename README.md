@@ -30,7 +30,7 @@ To create a new project based on a template in this project:
 
 ```command
 clojure -Sdeps \
-  '{:deps {io.github.athomasoriginal/templates {:git/sha "ee819a48c2de9d7de3870ad1bed254565c26a830"}}}' \
+  '{:deps {io.github.athomasoriginal/templates {:git/sha "2916265c596be3b8d5e6b57c64ef4b63ad0891cc"}}}' \
   -Tnew create \
   :template athomasoriginal/reagent \
   :name myusername/my-app-name
