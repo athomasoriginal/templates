@@ -20,8 +20,7 @@ function compile_clj(inputContent, inputPath) {
     // const { loadFile } = await import('./lib/nbb_api.js');
     const { loadFile } = await import('nbb');
     const { compileFile } = await loadFile("run_clj.cljs");
-    const { htmlString, deps } = await compileFile(inputPath, {data: data});
-    this.addDependencies(inputPath, deps);
+    const { htmlString } = await compileFile(inputPath, {data: data});
 
     return htmlString
   };
