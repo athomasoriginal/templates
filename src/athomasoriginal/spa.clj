@@ -1,4 +1,4 @@
-(ns athomasoriginal.reagent)
+(ns athomasoriginal.spa)
 
 (defn data-fn
   "Example data-fn handler.

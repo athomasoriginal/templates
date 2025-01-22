@@ -2,7 +2,7 @@
   (:refer-clojure :exclude [test])
   (:require [clojure.tools.build.api :as b]))
 
-(def lib 'net.clojars.athomasoriginal/reagent)
+(def lib 'net.clojars.athomasoriginal/spa)
 (def version (format "1.0.%s" (b/git-count-revs nil)))
 
 (defn test "Run all the tests." [opts]

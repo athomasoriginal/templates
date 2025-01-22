@@ -11,7 +11,7 @@ A collection of code project templates
     - [bb]
     - [c_app]
     - [eleventy]
-    - [reagent]
+    - [spa]
 - [Development]
 - [License]
 
@@ -32,7 +32,7 @@ To create a new project based on a template in this project:
 clojure -Sdeps \
   '{:deps {io.github.athomasoriginal/templates {:git/sha "2916265c596be3b8d5e6b57c64ef4b63ad0891cc"}}}' \
   -Tnew create \
-  :template athomasoriginal/reagent \
+  :template athomasoriginal/spa \
   :name myusername/my-app-name
 ```
 
@@ -80,7 +80,7 @@ A quick run through:
 
 * Am I building a `quick demo` code project? see [bb]
 * Am I building a `multi-page`/`backend` web app? see [app]
-* Am I building a `SPA` frontend? see [reagent]
+* Am I building a `SPA` frontend? see [spa]
 * Am I building a `Static Site` web app? see [eleventy]
 * Am I building a `Native App` ? see [c_app]
 
@@ -132,15 +132,15 @@ starting point for any project which should be a static app (e.g. a marketing
 site).  What makes this special is that it comes with a custom templating
 engine for `clojurescript`.
 
-#### reagent
+#### spa
 
-Create `reagent`
+Create `spa`
 
 ```command
-clj -T:new :template athomasoriginal/reagent :name app-name
+clj -T:new :template athomasoriginal/spa :name app-name
 ```
 
-This is a SPA app using `reagent` (clojurescript) app.  If I start a SPA, this
+This is a SPA app using `spa` (clojurescript) app.  If I start a SPA, this
 is how I do that.
 
 ## Development
@@ -152,8 +152,8 @@ is how I do that.
   ```command
   clojure -Sdeps '{:deps {athomasoriginal/templates {:local/root "."}}}' \
           -Tnew create \
-          :template athomasoriginal/reagent \
-          :name mygithubhandle/myreagent
+          :template athomasoriginal/spa \
+          :name mygithubhandle/myspa
   ```
 
 ## License
@@ -172,7 +172,7 @@ Distributed under the Eclipse Public License version 1.0.
 [bb]: #bb
 [c_app]: #c_app
 [eleventy]: #eleventy
-[reagent]: #reagent
+[spa]: #spa
 [Development]: #development
 [License]: #license
 

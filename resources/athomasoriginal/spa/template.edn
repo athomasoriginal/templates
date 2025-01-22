@@ -1,8 +1,8 @@
-{:description "A reagent template."
+{:description "A spa template (using reagent)."
  ;; this does not transform the data but does print a message:
- :data-fn athomasoriginal.reagent/data-fn
+ :data-fn athomasoriginal.spa/data-fn
  ;; this does not transform the EDN but does print a message:
- :template-fn athomasoriginal.reagent/template-fn
+ :template-fn athomasoriginal.spa/template-fn
  :transform
  [["build" ""
    {"build.tmpl"              "build.clj"
