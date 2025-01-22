@@ -72,41 +72,11 @@ The `hiccup` itself is parsed via `reagent`.
 With this in mind, this section will outline how to use `cljs` as a templating
 language:
 
-* CLJS & Frontmatter
 * CLJS & Data Cascade
+* CLJS & Frontmatter
 * CLJS & EDN Data
+* CLJS & Extra
 
-### CLJS & Frontmatter
-
-To use `frontmatter` in your `.cljs` files we don't add it to the top of the
-`.cljs` file because `---` isn't supported.  Furthermore, we don't advocate
-for upating the `delim` because this means that all of your templates,
-regardless of whether or not they are `.cljs` have to use our alternate delim
-approach.  Finally, even with our own `delim` set, we would also have to add
-a parser to take advantage of `.edn`.  Again, this isn't challenging, but it's
-an additional edge case to work around.  Instead, what we do is build in
-functionality so that you can define a a clojure function called `front-matter`
-in your `.cljs` file and specify you `front-matter` in there.
-
-Example:
-
-```clojure
-(ns src.entry)
-
-(defn front-matter
-  []
-  #js{:layout    "html-base.njk"
-      :permalink "entry.html"})
-
-
-(defn page
-  [data]
-  [:h1 "Welcome!"])
-```
-
-With the above, `some-hiccup` will render your code and then `front-matter`
-will be read in as front-matter and we don't need to change additional eleventy
-configs.
 
 ### CLJS & Data Cascade
 
@@ -120,6 +90,39 @@ All `page` components will take the following shape:
 ```
 
 `data` is vanilla JS so you'll access it using `cljs` interop.
+
+### CLJS & Frontmatter
+
+To use `frontmatter` in your `.cljs` files we don't add it to the top of the
+`.cljs` file because `---` isn't supported.  Furthermore, we don't
+upate the `delim` because this means that all of your templates,
+regardless of whether or not they are `.cljs`, have to use our new `delim`
+approach.  Finally, even with our own `delim` set, we would also have to add
+a parser to take advantage of `.edn`.  Again, this isn't challenging, but it's
+an additional edge case to work around.  Instead, what we do is build in
+functionality so that you can define a a clojure function called `front-matter`
+in your `.cljs` file and specify your `front-matter` in there.
+
+Example from `index.cljs`
+
+```clojure
+(ns src.index)
+
+(defn front-matter
+  []
+  #js{:layout    "html-base"
+      :title     "home"
+      :permalink "index.html"})
+
+
+(defn page
+  [data]
+  [:h1 "Welcome!"])
+```
+
+With the above, `some-hiccup` will render your code and then `front-matter`
+will be read in as front-matter and we don't need to change additional eleventy
+configs.
 
 ### EDN Data
 
@@ -137,6 +140,12 @@ perspective.  For example, you can add comments and it's relatively terse.
 
 The above will be automatically handled because of the additional support
 provided to our JS.
+
+### CLJS & Extra
+
+`extras` is a dir you can put your supplementary support code.  The reason we
+specify is because we tell Eleventy to ignore builds on these files for
+performance.
 
 ## Project Commands
 
@@ -194,6 +203,7 @@ There is a priority order for how Data is consumed by Eleventy.  Familarize your
 [Custom Template Engine Clojure]: #custom-template-engine-clojure
 [CLJS & Frontmatter]: #cljs-&-frontmatter
 [CLJS & Data Cascade]: #cljs-&-data-cascade
+[CLJS & Extra]: #cljs-&-extra
 [EDN Data]: #edn-data
 [Project Commands]: #project-commands
 [Data Usage]: #data-usage
