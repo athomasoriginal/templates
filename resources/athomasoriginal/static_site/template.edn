@@ -1,8 +1,8 @@
 {:description "An 11ty template."
  ;; this does not transform the data but does print a message:
- :data-fn athomasoriginal.eleventy/data-fn
+ :data-fn athomasoriginal.static-site/data-fn
  ;; this does not transform the EDN but does print a message:
- :template-fn athomasoriginal.eleventy/template-fn
+ :template-fn athomasoriginal.static-site/template-fn
  :transform
  [["src" "src"
    ["<<" ">>"]]]}

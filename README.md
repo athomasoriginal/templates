@@ -10,8 +10,8 @@ A collection of code project templates
     - [app]
     - [bb]
     - [c_app]
-    - [eleventy]
     - [spa]
+    - [static site]
 - [Development]
 - [License]
 
@@ -81,7 +81,7 @@ A quick run through:
 * Am I building a `quick demo` code project? see [bb]
 * Am I building a `multi-page`/`backend` web app? see [app]
 * Am I building a `SPA` frontend? see [spa]
-* Am I building a `Static Site` web app? see [eleventy]
+* Am I building a `Static Site` web app? see [static site]
 * Am I building a `Native App` ? see [c_app]
 
 #### app
@@ -119,15 +119,15 @@ clj -T:new :template athomasoriginal/c_app :name app-name
 This is a `c` app.  I use this as a starting point for creating `c` apps. It's
 currently built to support macos/linux.
 
-#### eleventy
+#### static site
 
-Create `eleventy`
+Create `static site`
 
 ```command
-clj -T:new :template athomasoriginal/eleventy :name app-name
+clj -T:new :template athomasoriginal/static-site :name app-name
 ```
 
-This is a static site generator app using `eleventy`.  I use this as a
+This is a static site generator app using `static site`.  I use this as a
 starting point for any project which should be a static app (e.g. a marketing
 site).  What makes this special is that it comes with a custom templating
 engine for `clojurescript`.
@@ -171,7 +171,7 @@ Distributed under the Eclipse Public License version 1.0.
 [app]: #app
 [bb]: #bb
 [c_app]: #c_app
-[eleventy]: #eleventy
+[static site]: #static-site
 [spa]: #spa
 [Development]: #development
 [License]: #license

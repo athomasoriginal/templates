@@ -1,4 +1,4 @@
-(ns athomasoriginal.eleventy)
+(ns athomasoriginal.static-site)
 
 (defn data-fn
   "Example data-fn handler.
