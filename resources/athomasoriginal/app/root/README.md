@@ -2,7 +2,7 @@
 
 * [Quickstart]
   * [Housekeeping]
-  * [Get the Code]
+  * [Get the App]
   * [Run the App]
 * [App Commands]
 * [App Features]
@@ -18,7 +18,7 @@
 
 ...
 
-### Get the Code
+### Get the App
 
 * Clone project
   ```
@@ -146,7 +146,7 @@ clojure -M:run-m Via-Main
 
 [Quickstart]: #quickstart
 [Housekeeping]: #housekeeping
-[Get the Code]: #get-the-code
+[Get the App]: #get-the-app
 [Run the App]: #run-the-app
 [App Commands]: #app-commands
 [Dev Tips]: #dev-tips
