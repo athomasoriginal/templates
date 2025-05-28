@@ -55,40 +55,69 @@ Visit localhost:8090
 The following is a complete list of commands to run:
 
 
-* Run the project's tests
-  ```command
-  bb test
-  ```
-  > They'll fail until you edit them
-* Find outdated packages
-  ```command
-  bb outdated
-  ```
-* Run the project's CI pipeline and build an uberjar (this will fail until you edit the tests to pass):
-  ```command
-  clojure -T:build ci
-  ```
-  This will produce an updated `pom.xml` file with synchronized dependencies inside the `META-INF`
-  directory inside `target/classes` and the uberjar in `target`. You can update the version (and SCM tag)
-  information in generated `pom.xml` by updating `build.clj`.
+### Run Tests
 
-  If you don't want the `pom.xml` file in your project, you can remove it. The `ci` task will
-  still generate a minimal `pom.xml` as part of the `uber` task, unless you remove `version`
-  from `build.clj`.
-  * Run that uberjar:
-    ```command
-    java -jar target/{{group/id}}/{{artifact/id}}-{{version}}.jar
-    ```
-* Run the project directly, via :main-opts (-m {{top/ns}}.{{main/ns}}):
+```command
+bb test
+```
+> They'll fail until you edit them
+
+
+### Check Outdated Deps
+
+```command
+bb outdated
+```
+
+### Build Uberjar
+
+* build the uberjar
   ```command
-  clojure -M:run-m
+  clojure -T:build uberjar :version '"2024.12.22.8"'
   ```
-  > Hello, World!
-* Run the project, overriding the name to be greeted:
+  > This will produce an updated `pom.xml` file with synchronized dependencies
+  > inside the `META-INF` directory inside `target/classes` and the uberjar in
+  > `target`. You can update the version (and SCM tag) information in generated
+  > `pom.xml` by updating `build.clj`.
+  >
+  > If you don't want the `pom.xml` file in your project, you can remove it.
+  > The `ci` task will still generate a minimal `pom.xml` as part of the `uber`
+  > task, unless you remove `version` from `build.clj`.
+* Run that uberjar:
   ```command
-  clojure -M:run-m Via-Main
+  java -jar target/{{group/id}}/{{artifact/id}}-{{version}}.jar
   ```
-  > Hello, Via-Main!
+  > you can pass args to the above and it's tricky at times so be sure to
+  > reference https://clojure.org/reference/clojure_cli#quoting
+
+Then you can verify it works by visiting localhost:3000.
+
+### Build CI Pipeline
+
+```command
+clojure -T:build ci
+
+```
+See above command, `Build and uberjar` for further details
+
+
+### Run the App Directly
+
+This is how you run the app via :main-opts (-m ato.app-time):
+
+```command
+clojure -M:run-m
+```
+> Hello, World!
+
+
+### Run the App With Options
+
+
+```command
+clojure -M:run-m Via-Main
+```
+> Hello, Via-Main!
 
 
 ## Dev Tips
