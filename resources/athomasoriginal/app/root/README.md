@@ -4,10 +4,18 @@
   * [Housekeeping]
   * [Get the App]
   * [Run the App]
-* [App Commands]
-* [App Features]
-* [Dev Tips]
-  * [Run Editor REPL Vim]
+  * [Learn the App]
+* [Commands]
+  * [test]
+  * [outdated]
+  * [build]
+  * [toolkit]
+  * [docker]
+* [Guides]
+  * [Conventions]
+  * [Style]
+  * [Dev Lifecycle]
+  * [REPL Vim]
 
 
 ## Quickstart
@@ -50,79 +58,62 @@
 Visit localhost:8090
 
 
-## App Commands
+### Learn the App
+
+...
+
+## Commands
 
 The following is a complete list of commands to run:
 
 
-### Run Tests
+### test
 
-```command
-bb test
-```
-> They'll fail until you edit them
+* Run all tests
+  ```command
+  bb test
+  ```
+  > They'll fail until you edit them
 
 
-### Check Outdated Deps
+### outdated
 
-```command
-bb outdated
-```
+* Find outdated deps
+  ```command
+  bb outdated
+  ```
 
-### Build Uberjar
+### build
 
-* build the uberjar
+* Build uberjar
   ```command
   clojure -T:build uberjar :version '"2024.12.22.8"'
   ```
-  > This will produce an updated `pom.xml` file with synchronized dependencies
-  > inside the `META-INF` directory inside `target/classes` and the uberjar in
-  > `target`. You can update the version (and SCM tag) information in generated
-  > `pom.xml` by updating `build.clj`.
-  >
-  > If you don't want the `pom.xml` file in your project, you can remove it.
-  > The `ci` task will still generate a minimal `pom.xml` as part of the `uber`
-  > task, unless you remove `version` from `build.clj`.
-* Run that uberjar:
+* Sanity check uberjar
   ```command
   java -jar target/{{group/id}}/{{artifact/id}}-{{version}}.jar
   ```
-  > you can pass args to the above and it's tricky at times so be sure to
-  > reference https://clojure.org/reference/clojure_cli#quoting
+  > If you need to pass args see the [clojure guide on quoting]
+* Visit site
+  ```text
+  localhost:3000
+  ```
 
-Then you can verify it works by visiting localhost:3000.
+## Guides
 
-### Build CI Pipeline
+### Conventions
 
-```command
-clojure -T:build ci
+...
 
-```
-See above command, `Build and uberjar` for further details
+### Style
 
+...
 
-### Run the App Directly
+### Dev Lifecycle
 
-This is how you run the app via :main-opts (-m ato.app-time):
+...
 
-```command
-clojure -M:run-m
-```
-> Hello, World!
-
-
-### Run the App With Options
-
-
-```command
-clojure -M:run-m Via-Main
-```
-> Hello, Via-Main!
-
-
-## Dev Tips
-
-### Run Editor REPL Vim
+### REPL Vim
 
 > The following assumes you've setup `vim-iced` correctly.
 
@@ -148,9 +139,15 @@ clojure -M:run-m Via-Main
 [Housekeeping]: #housekeeping
 [Get the App]: #get-the-app
 [Run the App]: #run-the-app
-[App Commands]: #app-commands
-[Dev Tips]: #dev-tips
-[Run Editor REPL Vim]: #run-editor-repl-vim
-[Todo]: #todo
+[Learn the App]: #learn-the-app
+[Commands]: #commands
+[test]: #test
+[outdated]: #outdated
+[build]: #build
+[Guides]: #guides
+[Conventions]: #conventions
+[Style]: #style
+[Dev Lifecycle]: #dev-lifecycle
+[REPL Vim]: #repl-vim
 
 [vim-iced]: https://github.com/liquidz/vim-iced
