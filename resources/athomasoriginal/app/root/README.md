@@ -7,6 +7,7 @@
   * [Learn the App]
 * [Commands]
   * [test]
+  * [fmt]
   * [outdated]
   * [build]
 * [Guides]
@@ -73,6 +74,12 @@ The following is a complete list of commands to run:
   ```
   > They'll fail until you edit them
 
+### fmt
+
+* Format file
+  ```command
+  bb fmt -w <path-to-clj-file>
+  ```
 
 ### outdated
 
@@ -140,6 +147,7 @@ The following is a complete list of commands to run:
 [Learn the App]: #learn-the-app
 [Commands]: #commands
 [test]: #test
+[fmt]: #fmt
 [outdated]: #outdated
 [build]: #build
 [Guides]: #guides
