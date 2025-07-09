@@ -9,8 +9,6 @@
   * [test]
   * [outdated]
   * [build]
-  * [toolkit]
-  * [docker]
 * [Guides]
   * [Conventions]
   * [Style]
