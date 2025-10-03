@@ -23,7 +23,7 @@
   ;;  $ bb fmt -w path/to/file.clj
   fmt
   {:doc        "Format clojure code"
-   :extra-deps {zprint/zprint {:mvn/version "1.2.9"}},
+   :extra-deps {zprint/zprint {:mvn/version "1.3.0"}},
    :requires   ([zprint.main])
    :task       (-> (partial zprint.main/-main "{:search-config? true}")
                    (apply *command-line-args*))}
