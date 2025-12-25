@@ -25,15 +25,15 @@ logs/**/*
 /classes
 /target
 
-# clojure - clj-kondo
+# lang - clojure - clj-kondo
 .clj-kondo/imports
 .clj-kondo/.cache
 
-# clojure - nrepl
+# lang - clojure - nrepl
 .nrepl-history
 .nrepl-port
 
-# clojure - rebl
+# lang - clojure - rebl
 .rebel_readline_history
 .settings
 .socket-repl-port
