@@ -1,5 +1,4 @@
-##  {{main/ns}}
-
+#  {{main/ns}}
 
 {{description}}
 
@@ -37,6 +36,9 @@ Be sure to have the following tools installed
   yarn dev
   ```
 
+Visit http://localhost:8080/
+
+
 ## Feature Choices
 
 This section includes tooling and pattern choices made for this template.
@@ -54,8 +56,7 @@ This section includes tooling and pattern choices made for this template.
 
 ## Custom Template Engine Clojure
 
-This template comes with Custom Template Engine and Data support for `cljs`
-and `edn`.
+We add Custom Template Engine and Data support for `cljs` and `edn`.
 
 I enjoy `eleventy`, but I don't like the templating solutions provided and I
 already have a large body of code which I would like to reuse for these
@@ -120,14 +121,13 @@ Example from `index.cljs`
   [:h1 "Welcome!"])
 ```
 
-With the above, `some-hiccup` will render your code and then `front-matter`
+With the above, `page` will render your code and then `front-matter`
 will be read in as front-matter and we don't need to change additional eleventy
 configs.
 
 ### EDN Data
 
-`edn` is a better file format compared to JSON from a developer experience
-perspective.  For example, you can add comments and it's relatively terse.
+`edn` can be used as an alternative to JSON for your eleventy `data` files
 
 - Add an edn file to the data dir
   ```command
